@@ -11,6 +11,8 @@ const LoadingSpinner = ({ size = 'md', className = '' }) => {
   return (
     <div className={`flex items-center justify-center ${className}`}>
       <div
+        role="status"
+        aria-label="loading"
         className={`${sizeClasses[size]} border-2 border-gray-300 dark:border-gray-600 border-t-blue-600 dark:border-t-blue-400 rounded-full animate-spin`}
       />
     </div>

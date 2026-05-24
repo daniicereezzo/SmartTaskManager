@@ -33,4 +33,5 @@ class AuthService {
   }
 }
 
-export const AuthService = new AuthService();
+// Export a singleton instance named `authService` to avoid identifier collisions
+export const authService = new AuthService();

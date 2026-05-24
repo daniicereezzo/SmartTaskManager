@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { AuthService } from '../services/AuthService';
+import { authService } from '../services/AuthService';
 
 export const useAuthStore = create(
   persist(
@@ -14,7 +14,7 @@ export const useAuthStore = create(
       login: async (googleToken) => {
         set({ isLoading: true, error: null });
         try {
-          const response = await AuthService.login(googleToken);
+          const response = await authService.login(googleToken);
           set({
             user: response.user,
             token: response.token,
@@ -52,7 +52,7 @@ export const useAuthStore = create(
 
         set({ isLoading: true });
         try {
-          const user = await AuthService.getCurrentUser();
+          const user = await authService.getCurrentUser();
           set({ user, isLoading: false });
         } catch (error) {
           set({

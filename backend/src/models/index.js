@@ -32,10 +32,16 @@ Object.keys(models).forEach(modelName => {
 });
 
 // Initialize database
+// NOTE: automatic schema `alter` can try to perform unsafe casts on Postgres enums
+// (for example: "default for column \"theme_preference\" cannot be cast automatically to type enum_users_theme_preference").
+// To avoid that at runtime we avoid using `alter` here and prefer running the SQL migrations
+// (npm run migrate) during setup. This keeps server startup safer in development environments
+// where the database schema may already exist.
 const initDatabase = async () => {
   try {
-    await sequelize.sync({ alter: process.env.NODE_ENV === 'development' });
-    console.log('Database models synchronized successfully.');
+    // Do not run automatic `alter` on startup to prevent unsafe ALTER TYPE operations
+    await sequelize.sync({ alter: false });
+    console.log('Database models synchronized successfully (no alter).');
   } catch (error) {
     console.error('Error synchronizing database models:', error);
     throw error;

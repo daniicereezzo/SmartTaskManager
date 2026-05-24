@@ -1,0 +1,11 @@
+{
+  "type": "module",
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!(axios|react-dnd|dnd-core|@react-dnd|react-dnd-html5-backend)/)"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
+    }
+  }
+}

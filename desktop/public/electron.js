@@ -23,8 +23,11 @@ function createWindow() {
   });
 
   // Load the app
-  const startUrl = isDev 
-    ? 'http://localhost:3000' 
+  // Allow overriding the dev server URL with an environment variable so we can
+  // run the backend on 3000 and the React dev server on a different port.
+  const devUrl = process.env.REACT_APP_DEV_URL || 'http://localhost:3000';
+  const startUrl = isDev
+    ? devUrl
     : `file://${path.join(__dirname, '../build/index.html')}`;
   
   mainWindow.loadURL(startUrl);

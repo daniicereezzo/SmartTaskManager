@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { TaskService } from '../services/TaskService';
+import { taskService } from '../services/TaskService';
 
 export const useTaskStore = create((set, get) => ({
   tasks: [],
@@ -17,7 +17,7 @@ export const useTaskStore = create((set, get) => ({
   fetchTasks: async (filters = {}) => {
     set({ isLoading: true, error: null });
     try {
-      const tasks = await TaskService.getTasks(filters);
+  const tasks = await taskService.getTasks(filters);
       set({ tasks, isLoading: false });
       return tasks;
     } catch (error) {
@@ -29,7 +29,7 @@ export const useTaskStore = create((set, get) => ({
   fetchTask: async (taskId) => {
     set({ isLoading: true, error: null });
     try {
-      const task = await TaskService.getTask(taskId);
+  const task = await taskService.getTask(taskId);
       set((state) => ({
         tasks: state.tasks.map(t => t.id === taskId ? task : t),
         isLoading: false
@@ -44,7 +44,7 @@ export const useTaskStore = create((set, get) => ({
   createTask: async (taskData) => {
     set({ isLoading: true, error: null });
     try {
-      const task = await TaskService.createTask(taskData);
+  const task = await taskService.createTask(taskData);
       set((state) => ({
         tasks: [...state.tasks, task],
         isLoading: false
@@ -59,7 +59,7 @@ export const useTaskStore = create((set, get) => ({
   updateTask: async (taskId, taskData) => {
     set({ isLoading: true, error: null });
     try {
-      const task = await TaskService.updateTask(taskId, taskData);
+  const task = await taskService.updateTask(taskId, taskData);
       set((state) => ({
         tasks: state.tasks.map(t => t.id === taskId ? task : t),
         isLoading: false
@@ -74,7 +74,7 @@ export const useTaskStore = create((set, get) => ({
   deleteTask: async (taskId) => {
     set({ isLoading: true, error: null });
     try {
-      await TaskService.deleteTask(taskId);
+  await taskService.deleteTask(taskId);
       set((state) => ({
         tasks: state.tasks.filter(t => t.id !== taskId),
         isLoading: false
@@ -88,7 +88,7 @@ export const useTaskStore = create((set, get) => ({
   updateTaskStatus: async (taskId, status, completionPercentage) => {
     set({ isLoading: true, error: null });
     try {
-      const task = await TaskService.updateTaskStatus(taskId, status, completionPercentage);
+  const task = await taskService.updateTaskStatus(taskId, status, completionPercentage);
       set((state) => ({
         tasks: state.tasks.map(t => t.id === taskId ? task : t),
         isLoading: false
@@ -103,7 +103,7 @@ export const useTaskStore = create((set, get) => ({
   scheduleTasks: async (startDate, endDate) => {
     set({ isLoading: true, error: null });
     try {
-      const result = await TaskService.scheduleTasks(startDate, endDate);
+  const result = await taskService.scheduleTasks(startDate, endDate);
       set({ isLoading: false });
       return result;
     } catch (error) {
@@ -115,7 +115,7 @@ export const useTaskStore = create((set, get) => ({
   fetchScheduledTasks: async (date) => {
     set({ isLoading: true, error: null });
     try {
-      const scheduledTasks = await TaskService.getScheduledTasks(date);
+  const scheduledTasks = await taskService.getScheduledTasks(date);
       set((state) => ({
         scheduledTasks: {
           ...state.scheduledTasks,
@@ -133,7 +133,7 @@ export const useTaskStore = create((set, get) => ({
   syncCalendar: async () => {
     set({ isLoading: true, error: null });
     try {
-      const result = await TaskService.syncCalendar();
+  const result = await taskService.syncCalendar();
       set({ isLoading: false });
       return result;
     } catch (error) {

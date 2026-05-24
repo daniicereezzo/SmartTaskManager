@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install root deps (if any)
+        run: |
+          echo "No root deps"
+
+      - name: Backend: install & test with coverage threshold
+        working-directory: backend
+        run: |
+          npm ci
+          npx jest --coverage --coverageThreshold='{ "global": { "branches": 60, "functions": 60, "lines": 60, "statements": 60 } }'
+
+      - name: Desktop: install & test with coverage
+        working-directory: desktop
+        run: |
+          npm ci
+          CI=true npm test --silent -- --coverage --watchAll=false
+        # Note: react-scripts does not support --coverageThreshold, so coverage must be checked in the report or enforced via a custom script or Codecov.
+
+      - name: Upload test logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-logs
+          path: |
+            backend/jest-results.json
+            desktop/jest-results.json

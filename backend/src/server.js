@@ -154,7 +154,11 @@ process.on('SIGINT', () => {
   });
 });
 
-// Start the server
-startServer();
+// Start the server only when this file is run directly. This allows tests to
+// import the Express `app` without starting the HTTP server or initializing
+// the database connection.
+if (require.main === module) {
+  startServer();
+}
 
 module.exports = { app, server, io };

@@ -63,4 +63,5 @@ class TaskService {
   }
 }
 
-export const TaskService = new TaskService();
+// Export a singleton instance named `taskService` to avoid identifier collisions
+export const taskService = new TaskService();

@@ -1,0 +1,137 @@
+
+> smart-task-manager-desktop@1.0.0 electron-dev
+> concurrently "npm run start:dev-port" "wait-on http://localhost:3001 && REACT_APP_DEV_URL=http://localhost:3001 electron ."
+
+[0] 
+[0] > smart-task-manager-desktop@1.0.0 start:dev-port
+[0] > cross-env PORT=3001 react-scripts start
+[0][1] wait-on http://localhost:3000 && electron . exited with code SIGTERM
+recationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+[0] (Use `node --trace-deprecation ...` to show where the warning was created)
+[0] (node:13147) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+[0] Starting the development server...
+[0] 
+[0] Compiled successfully!
+[0] 
+[0] You can now view smart-task-manager-desktop in the browser.
+[0] 
+[0]   Local:            http://localhost:3001
+[0]   On Your Network:  http://192.168.0.176:3001
+[0] 
+[0] Note that the development build is not optimized.
+[0] To create a production build, use npm run build.
+[0] 
+[0] webpack compiled successfully
+[1] [13455:1024/185842.055496:ERROR:gl_surface_presentation_helper.cc(260)] GetVSyncParametersIfAvailable() failed for 1 times!
+[1] [13455:1024/185844.892418:ERROR:gl_surface_presentation_helper.cc(260)] GetVSyncParametersIfAvailable() failed for 2 times!
+[1] [13455:1024/185846.904054:ERROR:gl_surface_presentation_helper.cc(260)] GetVSyncParametersIfAvailable() failed for 3 times!
+[1] Warning: loader_scanned_icd_add: Could not get 'vkCreateInstance' via 'vk_icdGetInstanceProcAddr' for ICD libGLX_nvidia.so.0
+[1] Warning: loader_parse_icd_manifest: Can not find 'ICD' object in ICD JSON file /usr/share/vulkan/icd.d/nvidia_layers.json. Skipping ICD JSON
+[1] Warning: terminator_CreateInstance: Failed to CreateInstance in ICD 4.  Skipping ICD.
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[0] Compiling...
+[0] Compiled successfully!
+[0] webpack compiled successfully
+[1] wait-on http://localhost:3001 && REACT_APP_DEV_URL=http://localhost:3001 electron . exited with code 0
+[0] npm run start:dev-port exited with code SIGTERM
